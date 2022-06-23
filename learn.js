@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let width = 400;
+let width = 120;
 let height = width/1.428571428571;
 // let width = canvas.width;
 // let height = canvas.height;
@@ -250,14 +250,4 @@ ctx.fillStyle = 'pink';
 ctx.fill();
 ctx.stroke();
 }
-// draw(width)
-
-// var slider = document.getElementById("myRange");
-// var output = document.getElementById("demo");
-// output.innerHTML = slider.value;
-
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-//     undraw();
-//   draw(400*this.value/50);
-// }
+draw(width)
