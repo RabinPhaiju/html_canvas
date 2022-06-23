@@ -48,3 +48,18 @@ kundali_path2D.map((path, index) => {
   if(index === 0 && ctx.isPointInPath(path, e.offsetX, e.offsetY)) {console.log('path: ',index+1);}
   else if(ctx.isPointInPath(path, e.offsetX, e.offsetY)){ console.log('path: ',index+1)}
 })})
+
+
+function downloadPng(){
+  const image = canvas.toDataURL();
+  const link = document.createElement('a');
+  link.href = image;
+  link.download = "image.png"
+  link.click()
+}
+
+let canvas_test = document.getElementById('canvas_test');
+let button = document.createElement('button')
+button.innerHTML = "Download"
+canvas_test.appendChild(button)
+document.addEventListener('click',downloadPng)
