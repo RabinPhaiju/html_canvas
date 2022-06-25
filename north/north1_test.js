@@ -1,13 +1,12 @@
 let scale = 1;
-const width = 400;
-const height = 280;
 let color = 'blue';
 let lineWidth = 1;
 
 let canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 600;
-canvas.height = 400;
+const width = canvas.width = 600;
+const height = canvas.height = width/1.428571428571;
+
 
 let lines = [
   // Triangle
@@ -62,4 +61,4 @@ let canvas_test = document.getElementById('canvas_test');
 let button = document.createElement('button')
 button.innerHTML = "Download"
 canvas_test.appendChild(button)
-document.addEventListener('click',downloadPng)
+canvas_test.addEventListener('click',downloadPng)
