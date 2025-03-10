@@ -2,14 +2,6 @@
     box-sizing: border-box;
   }
   
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-  }
-  
   #canvas {
     background: #f0f0f0;
     border-radius: 1px;
@@ -19,8 +11,36 @@
   #source {
     display: none;
   }
+  
   .body {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .vertical-navbar {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    background-color: #f8f9fa; /* Light background color */
+  }
+  .vertical-navbar .nav-link {
+    font-size: 1.2rem; /* Larger font size for better visibility */
+    color: #343a40; /* Dark text color */
+    padding: 0.5rem 1rem; /* Adjust padding */
+  }
+  .vertical-navbar .nav-link:hover {
+    color: #0d6efd; /* Change color on hover */
+  }
+
+  /* Custom styles for the canvas */
+  #canvas_button {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  .btn{
+      margin: 2px;
   }

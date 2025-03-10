@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <title>Canvas</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><span style='font-size:30px;'>&#8592;</span></a>
+            <a class="navbar-brand" href="#">South</a>
+
+            <!-- Navbar Toggler for Mobile Devices -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><button id="loadScript0" class="btn btn-primary">South1</button></li>
+                    <li class="nav-item"><button id="loadScript1" class="btn btn-primary">South2</button></li>
+                    
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="canvas-parent container bg-secondary">
+         <canvas id="canvas" width="800" height="400"></canvas>
+    </div>
+    <div id="canvas_button"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="../script.js"></script>
+
+<!-- Main Script -->
+<script>
+const scripts = ['south1.js', 'south2.js'];
+const defaultScript = scripts[0];
+
+// Check if a script should be loaded based on the query parameter or session storage
+let scriptToLoad = getQueryParameter('script'); // Try query parameter first
+if (!scriptToLoad) {
+    scriptToLoad = sessionStorage.getItem('scriptToLoad'); // Fallback to session storage
+}
+if (!scriptToLoad) {
+    scriptToLoad = defaultScript; // Use default script if both are empty
+}
+
+console.log(`Loading script: ${scriptToLoad}`);
+loadScript(scriptToLoad).catch(console.error);
+
+// Add event listeners to buttons
+scripts.forEach((script, index) => {
+    document.getElementById(`loadScript${index}`).addEventListener('click', () => {
+        const newUrl = `${window.location.pathname}?script=${script}`;
+        window.location.href = newUrl; // Reload the page
+    });
+});
+</script>
+</html>
