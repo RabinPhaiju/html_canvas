@@ -73,7 +73,7 @@ loadScript(scriptToLoad).catch(console.error);
 // Add event listeners to buttons
 scripts.forEach((script, index) => {
     document.getElementById(`loadScript${index}`).addEventListener('click', () => {
-        const newUrl = `html_canvas${window.location.pathname}?script=${script}`;
+        const newUrl = `${window.location.pathname}?script=${script}`;
         window.location.href = newUrl; // Reload the page
     });
 });
